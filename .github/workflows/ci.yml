@@ -9,7 +9,7 @@ jobs:
       - name: Setup Yarn
         run: npm install -g yarn
         run: yarn install
-        run: yarn test --watchAll=false
+        run: yarn test:all
       - name: Uninstall Yarn
         if: always()
         run: npm uninstall -g yarn
