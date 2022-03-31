@@ -8,6 +8,9 @@ jobs:
     name: CI Tests
     steps:
       - uses: actions/setup-node@v2
+      - name: where am i?
+        run: ls
+      - run: pwd
       - name: Setup Yarn
         run: npm install -g yarn
       - run: yarn install
