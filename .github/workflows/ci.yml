@@ -7,6 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     name: CI Tests
     steps:
+      - uses: actions/checkout@v3
       - uses: actions/setup-node@v2
       - name: where am i?
         run: ls
