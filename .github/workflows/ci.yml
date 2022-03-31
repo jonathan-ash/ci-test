@@ -2,11 +2,19 @@ name: CI
 
 on: [push]
 
+env:
+  NPM_CONFIG_REGISTRY: https://registry.npmjs.org/
+
 jobs:
   test:
     runs-on: ubuntu-latest
+    name: CI Tests
     steps:
+      - uses: actions/checkout@v3
       - uses: actions/setup-node@v2
+      - name: where am i?
+        run: ls
+      - run: pwd
       - name: Setup Yarn
         run: npm install -g yarn
       - run: yarn install
