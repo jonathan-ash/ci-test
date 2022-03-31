@@ -5,6 +5,7 @@ on: [push]
 jobs:
   test:
     runs-on: ubuntu-latest
+    name: CI Tests
     steps:
       - uses: actions/setup-node@v2
       - name: Setup Yarn
