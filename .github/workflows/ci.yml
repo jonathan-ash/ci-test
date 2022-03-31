@@ -10,6 +10,6 @@ jobs:
       - name: Setup Yarn
         run: npm install -g yarn
       - run: yarn install
-      - run: yarn test
+      - run: yarn test:all
       - name: Uninstall Yarn
         run: npm uninstall -g yarn
