@@ -2,6 +2,9 @@ name: CI
 
 on: [push]
 
+env:
+  NPM_CONFIG_REGISTRY: https://registry.npmjs.org/
+
 jobs:
   test:
     runs-on: ubuntu-latest
