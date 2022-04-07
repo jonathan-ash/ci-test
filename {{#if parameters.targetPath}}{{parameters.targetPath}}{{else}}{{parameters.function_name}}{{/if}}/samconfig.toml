@@ -1,0 +1,10 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "{{cookiecutter.function_name}}-Stack"
+s3_bucket = "{{cookiecutter.function_name}}-{{cookiecutter.aws_account_id}}"
+s3_prefix = "lambda/{{cookiecutter.function_name}}"
+region = "{{cookiecutter.aws_region}}"
+confirm_changeset = true
+capabilities = "CAPABILITY_NAMED_IAM"
