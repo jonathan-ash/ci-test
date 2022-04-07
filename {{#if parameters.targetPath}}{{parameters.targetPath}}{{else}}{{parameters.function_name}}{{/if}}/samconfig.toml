@@ -1,0 +1,10 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "{{ parameters.function_name }}-Stack"
+s3_bucket = "{{ parameters.function_name }}-{{ parameters.aws_account_id }}"
+s3_prefix = "lambda/{{ parameters.function_name }}"
+region = "{{ parameters.aws_region }}"
+confirm_changeset = true
+capabilities = "CAPABILITY_NAMED_IAM"
