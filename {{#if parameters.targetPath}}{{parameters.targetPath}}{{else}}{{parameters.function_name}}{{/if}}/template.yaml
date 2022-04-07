@@ -1,0 +1,40 @@
+AWSTemplateFormatVersion: 2010-09-09
+Transform: AWS::Serverless-2016-10-31
+Metadata:
+  Version: 1.0
+Description: >
+  SAM template for {{cookiecutter.function_name}} Lambda function
+
+Globals:
+  Function:
+    Timeout: 120
+    Tags:
+      Version: 1.0
+      CostCode: "{{cookiecutter.function_name}}"
+      Name: "{{cookiecutter.function_name}}"
+      # Orchestration: "https://github.com/elsevier-centraltechnology/core-account-compliance-dashboard"
+
+Resources:
+  {{cookiecutter.function_name}}Role:
+    Type: "AWS::IAM::Role"
+    Properties:
+      RoleName: "{{cookiecutter.function_name}}Role"
+      ManagedPolicyArns:
+        ["arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"]
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: "sts:AssumeRole"
+
+  {{cookiecutter.function_name}}Function:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Handler: main.main
+      Runtime: python3.8
+      FunctionName: "{{cookiecutter.function_name}}"
+      Role: !GetAtt "{{cookiecutter.function_name}}Role.Arn"
+      MemorySize: 256
